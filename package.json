@@ -1,0 +1,7 @@
+{
+  "scripts": {
+    "serve-shell": "npm run start --prefix apps/shell -- --port 4200",
+    "serve-bridge": "npm run start --prefix apps/bridge-pattern -- --port 4201",
+    "all": "concurrently \"npm run serve-shell\" \"npm run serve-bridge\""
+  }
+}
