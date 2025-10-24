@@ -1,0 +1,13 @@
+<main class="flex-1 overflow-y-auto p-6">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    @for(app of apps(); track app) {
+    <app-card [app]="app">
+      <ng-template [appRenderApp]="app" #appItem></ng-template>
+    </app-card>
+    } @empty {
+    <div class="col-span-full flex items-center justify-center h-48 text-gray-500 text-lg">
+      No apps found
+    </div>
+    }
+  </div>
+</main>

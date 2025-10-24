@@ -1,0 +1,13 @@
+@if(isLoading() || !period()) {
+<p class="loading">Loading...</p>
+} @else {
+<div class="header">
+  <img [src]="period()?.icon" [alt]="period()?.detailedForecast" class="icon" />
+</div>
+<div class="details">
+  <span>🌡 {{ period()?.temperature }}F </span>
+  <span>💧{{ period()?.probabilityOfPrecipitation?.value }}%</span>
+  <span>🌬{{ period()?.windSpeed }} {{ period()?.windDirection }}</span>
+  <div class="forecast">{{ period()?.detailedForecast }}</div>
+</div>
+}

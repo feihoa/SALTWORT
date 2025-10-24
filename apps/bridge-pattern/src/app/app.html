@@ -1,0 +1,11 @@
+<div class="wrapper" (appHover)="hoverChanged($event)">
+  @if(showTodo()) {
+  <app-widget>
+    <app-todo></app-todo>
+  </app-widget>
+  } @else {
+  <app-widget>
+    <app-weather></app-weather>
+  </app-widget>
+  }
+</div>

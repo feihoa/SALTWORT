@@ -1,0 +1,27 @@
+@if(isLoading() || !result()) {
+<p class="loading">Loading...</p>
+} @else {
+<div class="header">
+  Results for
+  <br>
+  <span class="date">{{ result()?.date | date }}</span>
+</div>
+
+<div class="content">
+  <div class="planned">
+    <div class="icon">📝</div>
+    <div class="number">{{ result()?.plannedNumber }}</div>
+    <div class="label">Planned</div>
+  </div>
+
+  <div class="completed">
+    <div class="icon">✅</div>
+    <div class="number">{{ result()?.completedNumber }}</div>
+    <div class="label">Completed</div>
+  </div>
+</div>
+
+<div class="progress-bar">
+  <div class="progress" [style]="{ width: progress() + '%' }"></div>
+</div>
+}

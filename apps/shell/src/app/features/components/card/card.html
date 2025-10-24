@@ -1,0 +1,18 @@
+<div class="aspect-square bg-gray-400 rounded-xl overflow-hidden flex flex-col">
+  <div class="card-header p-2 flex justify-between">
+    <h4>App: <b>{{ app()?.displayName ?? '' }}</b></h4>
+    @if(app()?.status === 'success') {
+    <button
+      title="Open App"
+      type="button"
+      class="bg-white/20 hover:bg-white/30 text-white rounded-lg px-2 py-1 text-sm"
+      (click)="onOpenApp()"
+    >
+      ↗
+    </button>
+    }
+  </div>
+  <div class="card-body flex-1 flex items-stretch justify-stretch text-white">
+    <ng-content></ng-content>
+  </div>
+</div>

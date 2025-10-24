@@ -1,0 +1,50 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 80%;
+  padding: 10px;
+  color: black;
+}
+
+.period-card {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+  justify-content: space-evenly;
+  padding: 10px;
+}
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.icon {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 0.05rem;
+  border-radius: 50%;
+}
+.details {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  justify-content: center;
+}
+.forecast {
+  font-style: italic;
+  color: #555;
+  margin: auto;
+}
+.loading {
+  color: black;
+  margin: auto;
+  display: block;
+  font-size: 24px;
+}
