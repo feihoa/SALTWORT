@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Observable, of } from "rxjs";
+import { delay, Observable, of } from "rxjs";
 import { TodoResult } from "../models/todo";
 
 const result: TodoResult = {
@@ -12,6 +12,6 @@ const result: TodoResult = {
 export class Todo {
 
   getResult(): Observable<TodoResult> {
-    return of(result);
+    return of(result).pipe(delay(1000));
   }
 }

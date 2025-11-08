@@ -6,8 +6,8 @@ export interface AppItem {
   readonly name: string;
   readonly routePath: string;
   readonly displayName: string;
-  component?: { App: Type<any> };
-  status: Status;
   readonly port: number;
+  status: Status;
+  component?: { App: Type<any> };
   errorReason?: string;
 }

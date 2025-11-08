@@ -1,5 +1,4 @@
-import { Component, ContentChild, OnInit } from '@angular/core';
-import { IWidget } from '../../../core/models/widget';
+import { Component, contentChild, OnInit } from '@angular/core';
 import { WIDGET } from '../../../core/tokens/widget';
 
 @Component({
@@ -10,13 +9,13 @@ import { WIDGET } from '../../../core/tokens/widget';
 })
 export class Widget implements OnInit {
 
-  @ContentChild(WIDGET, { static: true }) widget?: IWidget;
+  widget = contentChild(WIDGET);
 
   ngOnInit() {
-    this.widget?.load();
+    this.widget?.()?.load();
   }
 
   refresh() {
-    this.widget?.refresh();
+    this.widget?.()?.refresh();
   }
 }

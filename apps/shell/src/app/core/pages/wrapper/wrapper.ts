@@ -1,6 +1,5 @@
-import { Component, input } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
-import { AppItem } from '../../../core/models/app';
 
 @Component({
   selector: 'app-wrapper',
@@ -10,10 +9,7 @@ import { AppItem } from '../../../core/models/app';
       <router-outlet></router-outlet>
     </div>
   `,
-  styles: []
 })
 export class Wrapper {
-
-  app = input<AppItem>();
 
 }

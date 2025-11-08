@@ -1,0 +1,38 @@
+.container {
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  .upload-btn {
+    background: blue;
+    padding: 4px 10px;
+    color: white;
+    width: 150px;
+    cursor: pointer;
+  }
+
+  .image-list {
+    list-style-type: none;
+    padding-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    overflow: auto;
+    .image-card {
+      display: flex;
+      align-items: flex-start;
+    }
+    img {
+      max-width: 150px;
+      max-height: 150px;
+      object-fit: cover;
+    }
+    .remove-button {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+    }
+  }
+}

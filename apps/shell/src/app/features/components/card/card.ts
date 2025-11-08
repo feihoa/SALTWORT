@@ -14,10 +14,10 @@ export class Card {
 
   private readonly router = inject(Router);
 
-  app = input<AppItem>();
+  app = input.required<AppItem>();
 
   onOpenApp() {
-    this.router.navigate([this.app()?.routePath]);
+    this.router.navigate([this.app().routePath]);
   }
 
 }

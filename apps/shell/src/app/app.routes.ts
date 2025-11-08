@@ -1,7 +1,7 @@
 import { loadRemoteModule } from '@angular-architects/native-federation';
 import { Routes } from '@angular/router';
-import { Home } from './features/components/home/home';
-import { Wrapper } from './features/components/wrapper/wrapper';
+import { Home } from './core/pages/home/home';
+import { Wrapper } from './core/pages/wrapper/wrapper';
 import { initialApps } from './initial-apps';
 
 export const routes: Routes = [

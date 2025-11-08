@@ -8,5 +8,10 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Error {
-  message = input('Произошла ошибка');
+  message = input(null, {
+    transform: (v: string | Error): string | Error => {
+      if (!v) return 'ERROR';
+      return v;
+    }
+  });
 }

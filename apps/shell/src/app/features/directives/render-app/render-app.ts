@@ -7,15 +7,15 @@ import { Spinner } from '../../components/spinner/spinner';
   selector: '[appRenderApp]'
 })
 export class RenderApp {
-  appRenderApp = input<AppItem>();
+  appRenderApp = input.required<AppItem>();
   loaderComponent = input<Type<any>>(Spinner);
   errorComponent = input<Type<any>>(Error);
 
-  constructor(private viewContainerRef: ViewContainerRef) {
+  constructor(private readonly viewContainerRef: ViewContainerRef) {
     effect(() => {
       this.viewContainerRef.clear();
 
-      const app = this.appRenderApp()!;
+      const app = this.appRenderApp();
       const loaderComp = this.loaderComponent();
       const errorComp = this.errorComponent();
 

@@ -1,0 +1,16 @@
+<main class="container">
+  <button type="button" class="upload-btn" (click)="openPicker()">Open File Picker</button>
+
+  <ul class="image-list">
+    @for (file of uploads(); track file.handle; let id=$index) {
+    <li class="image-card">
+      <img [src]="file.url" />
+      <button type="button" class="remove-button" (click)="onRemove(id)">
+        x
+      </button>
+    </li>
+    } @empty {
+    <li class="empty">No files uploaded yet</li>
+    }
+  </ul>
+</main>

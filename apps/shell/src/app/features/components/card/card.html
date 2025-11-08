@@ -1,7 +1,7 @@
 <div class="aspect-square bg-gray-400 rounded-xl overflow-hidden flex flex-col">
   <div class="card-header p-2 flex justify-between">
-    <h4>App: <b>{{ app()?.displayName ?? '' }}</b></h4>
-    @if(app()?.status === 'success') {
+    <h4>App: <b>{{ app().displayName }}</b></h4>
+    @if(app().status === 'success') {
     <button
       title="Open App"
       type="button"

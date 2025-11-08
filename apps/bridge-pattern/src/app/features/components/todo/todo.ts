@@ -1,7 +1,7 @@
 import { DatePipe } from '@angular/common';
 import { Component, computed, DestroyRef, inject, signal, WritableSignal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { delay, tap } from 'rxjs';
+import { tap } from 'rxjs';
 import { TodoResult } from '../../../core/models/todo';
 import { IWidget } from '../../../core/models/widget';
 import { Todo } from '../../../core/services/todo';
@@ -34,7 +34,6 @@ export class TodoComp implements IWidget {
     this.isLoading.update(() => true);
     this.todo.getResult()
       .pipe(takeUntilDestroyed(this.destroyRef),
-        delay(2000),
         tap(() => this.isLoading.update(() => false)))
       .subscribe(res => this.result.set(res))
   }

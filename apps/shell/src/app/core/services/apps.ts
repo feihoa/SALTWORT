@@ -7,7 +7,7 @@ import { AppItem, Status } from "../models/app";
 
 @Injectable({ providedIn: 'root' })
 export class Apps {
-  apps = signal<AppItem[]>(initialApps);
+  apps = signal<AppItem[]>(initialApps, { equal: () => false });
 
   loadApps(): Observable<Partial<AppItem>> {
     return from(this.apps()).pipe(
@@ -17,11 +17,11 @@ export class Apps {
           map(module => ({
             name: app.name,
             component: module,
-            status: 'success' as Status,
+            status: <Status>'success',
           })),
           catchError(err => of({
             name: app.name,
-            status: 'error' as Status,
+            status: <Status>'error',
             errorReason: err,
           }))
         )
@@ -30,16 +30,18 @@ export class Apps {
   }
 
   updateAppData(app: Partial<AppItem>) {
+    const appIndex = this.apps().findIndex(ap => ap.name === app.name);
+    if (appIndex === -1) {
+      throw new Error(`${app.displayName ?? 'App'} does not listed in the initialApps!`);
+    }
+
+    if (this.apps()[appIndex].status === app.status) {
+      return;
+    }
+
     this.apps.update(arr => {
-      let appIndex = arr.findIndex(ap => ap.name === app.name);
-      if (appIndex === -1) {
-        throw new Error('This App does not listed in initialApps');
-      }
-      return [
-        ...arr.slice(0, appIndex),
-        { ...arr[appIndex], ...app },
-        ...arr.slice(appIndex + 1)
-      ];;
+      arr[appIndex] = { ...arr[appIndex], ...app };
+      return arr;
     });
   }
 

@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { By } from '@angular/platform-browser';
 import { Widget } from './widget';
 
 describe('Widget', () => {
@@ -12,9 +13,16 @@ describe('Widget', () => {
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Widget);
+    fixture = TestBed.createComponent(Widget, {
+
+    });
     component = fixture.componentInstance;
     fixture.detectChanges();
+
+    const displayedTitle = fixture.debugElement.query(
+      By.css('[data-testId="header_title"]')
+    );
+
   });
 
   it('should create', () => {

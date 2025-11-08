@@ -10,14 +10,12 @@ export class Weather {
 
   private readonly weatherApi = environment.weatherApi;
   private readonly http = inject(HttpClient);
-
   private readonly cache = inject(Cache);
 
   getForcast(): Observable<Period> {
     const url = this.weatherApi + '/gridpoints/AKQ/97,39/forecast';
 
     const cached = this.cache.get(url);
-    console.log(cached)
     if (cached) return cached.pipe(delay(1000));
 
     return this.http.get<WeatherData>(url)

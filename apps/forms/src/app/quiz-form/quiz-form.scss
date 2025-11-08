@@ -1,0 +1,22 @@
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .questions {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    div {
+      padding: 10px;
+      border: 1px solid black;
+    }
+    .remove {
+      margin-left: 3px;
+    }
+  }
+}
+
+button, .remove {
+  cursor: pointer;
+}

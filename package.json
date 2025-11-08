@@ -4,6 +4,7 @@
   "scripts": {
     "shell": "npm run start --prefix apps/shell -- --port 4200",
     "bridge": "npm run start --prefix apps/bridge-pattern -- --port 4201",
-    "all": "concurrently \"npm run shell\" \"npm run bridge\""
+    "file-uploader": "npm run start --prefix apps/file-uploader -- --port 4203",
+    "all": "concurrently \"npm run shell\" \"npm run bridge-pattern\" \"npm run file-uploader\""
   }
 }

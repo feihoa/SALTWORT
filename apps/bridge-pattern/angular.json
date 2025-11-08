@@ -5,7 +5,11 @@
 	"projects": {
 		"bridge-pattern": {
 			"projectType": "application",
-			"schematics": {},
+			"schematics": {
+				"@schematics/angular:component": {
+					"changeDetection": "OnPush"
+				}
+			},
 			"root": "",
 			"sourceRoot": "src",
 			"prefix": "app",
@@ -19,13 +23,13 @@
 						},
 						"development": {
 							"target": "bridge-pattern:esbuild:development",
-              "dev": true,
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.development.ts"
-                }
-              ]
+							"dev": true,
+							"fileReplacements": [
+								{
+									"replace": "src/environments/environment.ts",
+									"with": "src/environments/environment.development.ts"
+								}
+							]
 						}
 					},
 					"defaultConfiguration": "production"
@@ -54,7 +58,8 @@
 						],
 						"styles": [
 							"src/styles.css"
-						]
+						],
+						"karmaConfig": "karma.conf.js"
 					}
 				},
 				"esbuild": {

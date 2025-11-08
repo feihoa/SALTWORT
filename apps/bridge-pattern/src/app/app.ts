@@ -26,11 +26,11 @@ export class App implements OnInit {
       takeUntilDestroyed(this.destroyRef),
       switchMap(i => !this.isHovered ? of(i) : NEVER)
     ).subscribe(() => this.showTodo.update(value => !value))
+
   }
 
   hoverChanged(isHovered: boolean) {
     this.isHovered = isHovered;
-    console.log(`isHovered: ${isHovered}`)
   }
 
 }
